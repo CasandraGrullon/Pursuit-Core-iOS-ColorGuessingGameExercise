@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var gamePrompt: UILabel!
     
     
+    @IBOutlet weak var scoreCount: UILabel!
+    
+    var score = 0
     
     var myRed = CGFloat.random(in: 0...1)
     var myBlue = CGFloat.random(in: 0...1)
@@ -40,6 +43,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         colorInPlay.backgroundColor = randomColor()
+        gamePrompt.text = "Which color is most related"
+        scoreCount.text = "score: 0"
     }
     
     @IBAction func tryAgain(_ sender: UIButton) {
@@ -47,7 +52,9 @@ class ViewController: UIViewController {
         redButton.isEnabled = true
         greenButton.isEnabled = true
         
-        colorInPlay.backgroundColor = randomColor()
+        viewDidLoad()
+        score = 0
+        
         
     }
     
@@ -63,6 +70,8 @@ class ViewController: UIViewController {
             if button.tag == 0 {
                 gamePrompt.text = "correct"
                 colorInPlay.backgroundColor = randomColor()
+                score += 1
+                scoreCount.text = "score : \(score)"
                 
             } else {
                 gamePrompt.text = "wrong"
@@ -72,6 +81,8 @@ class ViewController: UIViewController {
             if button.tag == 1 {
                 gamePrompt.text = "correct"
                 colorInPlay.backgroundColor = randomColor()
+                score += 1
+                scoreCount.text = "score : \(score)"
             } else {
                 gamePrompt.text = "wrong"
             }
@@ -80,6 +91,8 @@ class ViewController: UIViewController {
             if button.tag == 2 {
                 gamePrompt.text = "correct"
                 colorInPlay.backgroundColor = randomColor()
+                score += 1
+                scoreCount.text = "score : \(score)"
             } else {
                 gamePrompt.text = "wrong"
             }
