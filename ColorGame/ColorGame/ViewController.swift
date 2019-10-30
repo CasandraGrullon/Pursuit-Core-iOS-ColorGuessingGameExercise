@@ -16,9 +16,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var gamePrompt: UILabel!
     
+    
+    
     var myRed = CGFloat.random(in: 0...1)
     var myBlue = CGFloat.random(in: 0...1)
     var myGreen = CGFloat.random(in: 0...1)
+    
+    func randomColor() -> UIColor {
+        _ = UIColor.orange
+         myRed = CGFloat.random(in: 0...1)
+         myBlue = CGFloat.random(in: 0...1)
+         myGreen = CGFloat.random(in: 0...1)
+        let new = UIColor.init(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
+        return new
+    }
     
     //buttons
     @IBOutlet weak var redButton: UIButton!
@@ -27,23 +38,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let randomColor = UIColor.init(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
-        colorInPlay.backgroundColor = randomColor
+        
+        colorInPlay.backgroundColor = randomColor()
     }
     
     @IBAction func tryAgain(_ sender: UIButton) {
         blueButton.isEnabled = true
         redButton.isEnabled = true
         greenButton.isEnabled = true
-        let randomColor = UIColor.init(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
-        colorInPlay.backgroundColor = randomColor
+        
+        colorInPlay.backgroundColor = randomColor()
         
     }
     
     
     @IBAction func rgbButtons(_ button: UIButton) {
 
-        let randomColor = UIColor.init(red: myRed, green: myGreen, blue: myBlue, alpha: 1)
         let randomColors = [myRed , myBlue, myGreen]
         let highestAmount = randomColors.max()
         let dominantColor = highestAmount ?? 0
@@ -52,6 +62,8 @@ class ViewController: UIViewController {
         case myRed :
             if button.tag == 0 {
                 gamePrompt.text = "correct"
+                colorInPlay.backgroundColor = randomColor()
+                
             } else {
                 gamePrompt.text = "wrong"
             }
@@ -59,6 +71,7 @@ class ViewController: UIViewController {
         case myBlue :
             if button.tag == 1 {
                 gamePrompt.text = "correct"
+                colorInPlay.backgroundColor = randomColor()
             } else {
                 gamePrompt.text = "wrong"
             }
@@ -66,6 +79,7 @@ class ViewController: UIViewController {
         case myGreen :
             if button.tag == 2 {
                 gamePrompt.text = "correct"
+                colorInPlay.backgroundColor = randomColor()
             } else {
                 gamePrompt.text = "wrong"
             }
@@ -76,7 +90,7 @@ class ViewController: UIViewController {
         
         switch gamePrompt.text {
         case "correct" :
-            colorInPlay.backgroundColor = randomColor
+             colorInPlay.backgroundColor = randomColor()
         case "wrong" :
             redButton.isEnabled = false
             greenButton.isEnabled = false
