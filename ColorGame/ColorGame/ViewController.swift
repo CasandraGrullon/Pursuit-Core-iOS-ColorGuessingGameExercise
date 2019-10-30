@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         colorInPlay.backgroundColor = randomColor()
-        gamePrompt.text = "Which color is most related"
+        gamePrompt.text = "Which color is most related?"
         scoreCount.text = "score: 0"
         
         
@@ -76,6 +76,9 @@ class ViewController: UIViewController {
                 
             } else {
                 gamePrompt.text = "wrong"
+                redButton.isEnabled = false
+                greenButton.isEnabled = false
+                blueButton.isEnabled = false
             }
             
         case myBlue :
@@ -88,6 +91,9 @@ class ViewController: UIViewController {
                 
             } else {
                 gamePrompt.text = "wrong"
+                redButton.isEnabled = false
+                greenButton.isEnabled = false
+                blueButton.isEnabled = false
             }
             
         case myGreen :
@@ -100,24 +106,15 @@ class ViewController: UIViewController {
                 
             } else {
                 gamePrompt.text = "wrong"
+                redButton.isEnabled = false
+                greenButton.isEnabled = false
+                blueButton.isEnabled = false
             }
             
         default:
             gamePrompt.text = "testing"
         }
-        
-        switch gamePrompt.text {
-        case "correct" :
-             colorInPlay.backgroundColor = randomColor()
-        case "wrong" :
-            redButton.isEnabled = false
-            greenButton.isEnabled = false
-            blueButton.isEnabled = false
-        default :
-            colorInPlay.backgroundColor = .black
-        }
-        
-        
+ 
         if currentScore < highscore {
             highScore.text = "High Score : \(highscore)"
         } else if currentScore > highscore {
