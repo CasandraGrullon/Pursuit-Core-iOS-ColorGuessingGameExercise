@@ -66,7 +66,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYc-iV-peu">
-                                <rect key="frame" x="20" y="765" width="374" height="21"/>
+                                <rect key="frame" x="20" y="746" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HighScore" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9l-Ro-YSz">
+                                <rect key="frame" x="20" y="780" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -81,6 +88,7 @@
                         <outlet property="colorInPlay" destination="PpE-vt-6W6" id="0ER-mS-WRW"/>
                         <outlet property="gamePrompt" destination="Znc-Az-t8H" id="chR-Qa-qGT"/>
                         <outlet property="greenButton" destination="O1t-XX-HaK" id="hTf-Cs-5LZ"/>
+                        <outlet property="highScore" destination="P9l-Ro-YSz" id="SD5-wf-r1U"/>
                         <outlet property="redButton" destination="QOO-PI-v56" id="OPC-9T-n8c"/>
                         <outlet property="scoreCount" destination="oYc-iV-peu" id="edJ-mA-cqf"/>
                     </connections>

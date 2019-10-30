@@ -15,18 +15,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var colorInPlay: UIImageView!
     
     @IBOutlet weak var gamePrompt: UILabel!
-    
-    
     @IBOutlet weak var scoreCount: UILabel!
+    @IBOutlet weak var highScore: UILabel!
+    
     
     var score = 0
+    var highscore = 0 
+    var currentScore = 0
     
     var myRed = CGFloat.random(in: 0...1)
     var myBlue = CGFloat.random(in: 0...1)
     var myGreen = CGFloat.random(in: 0...1)
     
     func randomColor() -> UIColor {
-        _ = UIColor.orange
          myRed = CGFloat.random(in: 0...1)
          myBlue = CGFloat.random(in: 0...1)
          myGreen = CGFloat.random(in: 0...1)
@@ -45,25 +46,23 @@ class ViewController: UIViewController {
         colorInPlay.backgroundColor = randomColor()
         gamePrompt.text = "Which color is most related"
         scoreCount.text = "score: 0"
+        
+        
     }
     
     @IBAction func tryAgain(_ sender: UIButton) {
         blueButton.isEnabled = true
         redButton.isEnabled = true
         greenButton.isEnabled = true
-        
         viewDidLoad()
         score = 0
-        
-        
     }
     
     
     @IBAction func rgbButtons(_ button: UIButton) {
 
         let randomColors = [myRed , myBlue, myGreen]
-        let highestAmount = randomColors.max()
-        let dominantColor = highestAmount ?? 0
+        let dominantColor = randomColors.max() ?? 0
         
         switch dominantColor {
         case myRed :
@@ -72,6 +71,8 @@ class ViewController: UIViewController {
                 colorInPlay.backgroundColor = randomColor()
                 score += 1
                 scoreCount.text = "score : \(score)"
+                currentScore = score
+                
                 
             } else {
                 gamePrompt.text = "wrong"
@@ -83,6 +84,8 @@ class ViewController: UIViewController {
                 colorInPlay.backgroundColor = randomColor()
                 score += 1
                 scoreCount.text = "score : \(score)"
+                currentScore = score
+                
             } else {
                 gamePrompt.text = "wrong"
             }
@@ -93,6 +96,8 @@ class ViewController: UIViewController {
                 colorInPlay.backgroundColor = randomColor()
                 score += 1
                 scoreCount.text = "score : \(score)"
+                currentScore = score
+                
             } else {
                 gamePrompt.text = "wrong"
             }
@@ -111,6 +116,15 @@ class ViewController: UIViewController {
         default :
             colorInPlay.backgroundColor = .black
         }
+        
+        
+        if currentScore < highscore {
+            highScore.text = "High Score : \(highscore)"
+        } else if currentScore > highscore {
+            highscore = currentScore
+            highScore.text = "High Score : \(highscore)"
+        }
+        
         
     }
     
